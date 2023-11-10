@@ -5,11 +5,11 @@ import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Expression;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Expression;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 
 import org.splv.evouchers.core.Constants;
 import org.splv.evouchers.core.domain.EVoucher;
@@ -18,7 +18,6 @@ import org.splv.evouchers.core.process.beans.in.EVoucherFilterBean;
 import org.springframework.data.jpa.domain.Specification;
 
 import lombok.RequiredArgsConstructor;
-
 @RequiredArgsConstructor
 public class EVoucherSpecification implements Specification<EVoucher> {
 	

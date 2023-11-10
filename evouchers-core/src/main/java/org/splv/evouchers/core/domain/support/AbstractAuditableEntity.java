@@ -3,9 +3,9 @@ package org.splv.evouchers.core.domain.support;
 import java.time.ZonedDateTime;
 import java.util.Optional;
 
-import javax.persistence.Column;
-import javax.persistence.EntityListeners;
-import javax.persistence.MappedSuperclass;
+import jakarta.persistence.Column;
+import jakarta.persistence.EntityListeners;
+import jakarta.persistence.MappedSuperclass;
 
 import org.splv.evouchers.core.Constants;
 import org.springframework.data.annotation.CreatedBy;

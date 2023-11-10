@@ -39,7 +39,7 @@ public class EVoucherTemplatingServiceFreemarker {
 
 		String content = "";
 		Template contentTemplate;
-		String templateName = String.format("mail_%s.ftlh", locale.getLanguage().toLowerCase());
+		String templateName = "mail_%s.ftlh".formatted(locale.getLanguage().toLowerCase());
 		try {
 			contentTemplate = freemarkerConfiguration.getTemplate(templateName);
 			Map<String, Object> model = new HashMap<>();

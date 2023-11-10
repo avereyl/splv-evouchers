@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Email;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Email;
 
 import org.splv.evouchers.api.controller.exception.InvalidEVoucherStatusParameterException;
 import org.splv.evouchers.core.business.exception.EVoucherNotFoundException;
@@ -23,7 +23,7 @@ import org.splv.evouchers.core.process.beans.out.EVoucherEventObject;
 import org.splv.evouchers.core.process.beans.out.EVoucherObject;
 import org.splv.evouchers.core.process.beans.out.EVoucherPrintObject;
 import org.splv.evouchers.core.process.beans.out.EVoucherValidationResultObject;
-import org.springdoc.api.annotations.ParameterObject;
+import org.springdoc.core.annotations.ParameterObject;
 import org.springdoc.core.converters.models.PageableAsQueryParam;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.data.domain.Page;
@@ -64,8 +64,8 @@ public class EVoucherController {
 	@PageableAsQueryParam
 	@GetMapping(value = "/evouchers/", produces = { DEFAULT_API_CONTENT_TYPE_V1 })
 	public ResponseEntity<Page<EVoucherObject>> findEVouchers(@ParameterObject Pageable pageable,
-			@RequestParam(name = "dateFrom", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) final ZonedDateTime dateFrom,
-			@RequestParam(name = "dateTo", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) final ZonedDateTime dateTo) {
+			@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) final ZonedDateTime dateFrom,
+			@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) final ZonedDateTime dateTo) {
 
 		EVoucherFilterBean filterDTO = new EVoucherFilterBean();
 		filterDTO.setDateFrom(dateFrom);
@@ -86,9 +86,9 @@ public class EVoucherController {
 	 */
 	@GetMapping(value = "/evouchers/templates/", produces = { DEFAULT_API_CONTENT_TYPE_V1 })
 	public ResponseEntity<List<EVoucherSaveBean>> findEVouchersTemplates(
-			@RequestParam(name = "query", required = false) final String query,
-			@RequestParam(name = "latitude", required = false) final Double latitude,
-			@RequestParam(name = "longitude", required = false) final Double longitude) {
+			@RequestParam(required = false) final String query,
+			@RequestParam(required = false) final Double latitude,
+			@RequestParam(required = false) final Double longitude) {
 
 		EVoucherSearchBean searchDTO = new EVoucherSearchBean();
 		searchDTO.setQuery(query);
@@ -176,7 +176,7 @@ public class EVoucherController {
 	 */
 	@GetMapping(value = "/evouchers/{id}/preview", produces = MediaType.APPLICATION_PDF_VALUE)
 	public ResponseEntity<ByteArrayResource> previewEVoucherPrint(@PathVariable Long id,
-			@RequestParam(name = "refresh", required = false) final Boolean refresh) {
+			@RequestParam(required = false) final Boolean refresh) {
 		boolean isForcedPrinting = refresh != null && refresh.booleanValue();
 		EVoucherPrintObject print = eVoucherProcessService.previewEVoucher(id, isForcedPrinting);
 		ByteArrayResource resource = new ByteArrayResource(print.getData());
@@ -196,8 +196,8 @@ public class EVoucherController {
 	@Operation(responses = @ApiResponse(responseCode = "200", content = @Content(array = @ArraySchema(schema = @Schema(implementation = EVoucherEventObject.class)))))
 	@PostMapping(value = "/evouchers/{id}/dispatch", produces = MediaType.APPLICATION_NDJSON_VALUE)
 	public Flux<EVoucherEventObject> printAndSendEvoucher(@PathVariable Long id,
-			@RequestParam(name = "to", required = false, defaultValue = "") Set<@Email String> to,
-			@RequestParam(name = "cc", required = false, defaultValue = "") Set<@Email String> cc) {
+			@RequestParam(required = false, defaultValue = "") Set<@Email String> to,
+			@RequestParam(required = false, defaultValue = "") Set<@Email String> cc) {
 		return eVoucherProcessService.dispatchEVoucher(id, to, cc);
 	}
 	

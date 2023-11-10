@@ -1,7 +1,7 @@
 package org.splv.evouchers.core.domain.converter;
 
-import javax.persistence.AttributeConverter;
-import javax.persistence.Converter;
+import jakarta.persistence.AttributeConverter;
+import jakarta.persistence.Converter;
 
 import org.splv.evouchers.core.domain.EVoucherEventType;
 

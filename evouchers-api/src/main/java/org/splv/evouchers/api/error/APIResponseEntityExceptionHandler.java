@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.splv.evouchers.api.Constants;
 import org.splv.evouchers.api.controller.exception.InvalidEVoucherStatusParameterException;
@@ -110,7 +110,7 @@ public class APIResponseEntityExceptionHandler extends ResponseEntityExceptionHa
 	public ResponseEntity<APIError> handleCoreTechException(RuntimeException ex, WebRequest request) {
 		List<String> errors = new ArrayList<>();
 		if (ex instanceof TemplatingException tex) {
-			errors.add(String.format("Error rendering text with template %s", tex.getTemplateName()));
+			errors.add("Error rendering text with template %s".formatted(tex.getTemplateName()));
 		}
 		APIError apiError = new APIError(HttpStatus.INTERNAL_SERVER_ERROR, "", ex.getMessage(), errors);
 		return new ResponseEntity<>(apiError, defaultHeaders, HttpStatus.INTERNAL_SERVER_ERROR);

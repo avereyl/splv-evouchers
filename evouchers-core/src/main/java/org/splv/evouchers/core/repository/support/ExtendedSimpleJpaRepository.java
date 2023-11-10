@@ -8,19 +8,19 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import javax.persistence.Cache;
-import javax.persistence.EntityManager;
-import javax.persistence.Parameter;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Order;
-import javax.persistence.criteria.ParameterExpression;
-import javax.persistence.criteria.Path;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
-import javax.persistence.criteria.Subquery;
-import javax.persistence.metamodel.SingularAttribute;
+import jakarta.persistence.Cache;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Parameter;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Order;
+import jakarta.persistence.criteria.ParameterExpression;
+import jakarta.persistence.criteria.Path;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
+import jakarta.persistence.criteria.Subquery;
+import jakarta.persistence.metamodel.SingularAttribute;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -72,7 +72,6 @@ public class ExtendedSimpleJpaRepository<T, ID extends Serializable> extends Sim
 	@Override
 	public <X> Page<X> findEntitiesAttribute(SingularAttribute<T, X> attribute, @Nullable Specification<T> spec,
 			Pageable pageable) {
-
 		CriteriaBuilder criteriaBuilder = this.entityManager.getCriteriaBuilder();
 		CriteriaQuery<X> criteriaQuery = criteriaBuilder.createQuery(attribute.getJavaType());
 		CriteriaQuery<Long> countQuery = criteriaBuilder.createQuery(Long.class);
@@ -116,7 +115,7 @@ public class ExtendedSimpleJpaRepository<T, ID extends Serializable> extends Sim
 				countQuery.where(predicate);
 			}
 		}
-		countQuery.select(criteriaBuilder.count(root.get(attribute)));
+		countQuery.select(criteriaBuilder.count(countRoot.get(attribute)));
 		// Remove all Orders the Specifications might have applied
 		countQuery.orderBy(Collections.<Order>emptyList());
 

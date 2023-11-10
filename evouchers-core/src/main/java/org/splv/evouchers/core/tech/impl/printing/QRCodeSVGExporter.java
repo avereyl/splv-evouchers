@@ -84,7 +84,7 @@ public class QRCodeSVGExporter {
 		String size = Integer.toString((matrixSize + 2 * matrixQZoffset) * DEFAULT_SCALE);
 		svgRoot.setAttributeNS(null, SVG_ATTR_WIDTH, finalSizeAsString);
 		svgRoot.setAttributeNS(null, SVG_ATTR_HEIGHT, finalSizeAsString);
-		svgRoot.setAttributeNS(null, SVG_ATTR_VIEWBOX, String.format("0 0 %s %s", size, size));
+		svgRoot.setAttributeNS(null, SVG_ATTR_VIEWBOX, "0 0 %s %s".formatted(size, size));
 
 		// title
 		final Element title = svg.createElementNS(svgNS, SVG_ELEMENT_TITLE);
@@ -162,7 +162,7 @@ public class QRCodeSVGExporter {
 
 
 	private String buildBackgroundPathD(int size) {
-		return String.format("M0 0 h%d v%d h%d z", size, size, -size);
+		return "M0 0 h%d v%d h%d z".formatted(size, size, -size);
 	}
 
 	private String buildQRCodePathD(BitMatrix matrix, int qzOffset) {
@@ -191,7 +191,7 @@ public class QRCodeSVGExporter {
 	}
 
 	private String buildRectangle(int x, int y, int dX, int dY, int scale) {
-		return String.format(" M%d %d h%d v%d h%d z", x * scale, y * scale, dX * scale, dY * scale, -dX * scale);
+		return " M%d %d h%d v%d h%d z".formatted(x * scale, y * scale, dX * scale, dY * scale, -dX * scale);
 	}
 
 	private int[] findBiggestArea(BitMatrix matrix, int x, int y) {

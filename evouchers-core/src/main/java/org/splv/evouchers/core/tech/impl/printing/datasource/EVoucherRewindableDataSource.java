@@ -30,7 +30,7 @@ public class EVoucherRewindableDataSource extends EmptyRewindableDataSource {
 		float amountValue = eVoucher.getAmount().floatValue();
 		String amountNumeric = PrintingHelper.formatAmount(amountValue, locale);
 		String amountLitteral = PrintingHelper.formatAmountLitteral(amountValue, locale, messageSource);
-		this.voucherAmount = String.format("%s (%s)", amountLitteral, amountNumeric);
+		this.voucherAmount = "%s (%s)".formatted(amountLitteral, amountNumeric);
 		this.voucherDate = PrintingHelper.formatDate(eVoucher.getDonationDate(), Constants.DEFAULT_ZONEID, locale);
 		this.voucherDateLitteral = PrintingHelper.formatDateLitteral(eVoucher.getDonationDate(), Constants.DEFAULT_ZONEID, locale);
 		this.voucherReference = eVoucher.getFormattedReference();

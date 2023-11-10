@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.AddressException;
+import jakarta.mail.internet.InternetAddress;
 
 import org.splv.evouchers.core.business.beans.Attachment;
 import org.splv.evouchers.core.config.properties.MailingProperties;

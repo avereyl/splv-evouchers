@@ -54,7 +54,7 @@ public class QRCodeGenerator {
 	}
 
 	private BitMatrix generateCode(EVoucher eVoucher) {
-		return generateCode(String.format(Constants.BARCODE_DATA_FORMAT, signingService.signEVoucher(eVoucher)));
+		return generateCode((Constants.BARCODE_DATA_FORMAT).formatted(signingService.signEVoucher(eVoucher)));
 	}
 
 	

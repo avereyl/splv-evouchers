@@ -1,7 +1,7 @@
 package org.splv.evouchers.core.process.beans.validation;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 
 import org.splv.evouchers.core.domain.EVoucherDonorType;
 import org.splv.evouchers.core.process.beans.in.EVoucherSaveBean;

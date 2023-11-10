@@ -2,7 +2,7 @@ package org.splv.evouchers.api.error;
 
 import java.util.Locale;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.splv.evouchers.api.Constants;
 import org.springframework.context.MessageSource;

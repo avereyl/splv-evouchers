@@ -3,7 +3,7 @@ package org.splv.evouchers.core.repository.support;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.metamodel.SingularAttribute;
+import jakarta.persistence.metamodel.SingularAttribute;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

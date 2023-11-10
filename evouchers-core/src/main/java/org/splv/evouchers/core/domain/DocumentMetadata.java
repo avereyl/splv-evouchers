@@ -1,10 +1,10 @@
 package org.splv.evouchers.core.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 
 import org.splv.evouchers.core.Constants;
 import org.splv.evouchers.core.domain.support.AbstractBaseEntity;

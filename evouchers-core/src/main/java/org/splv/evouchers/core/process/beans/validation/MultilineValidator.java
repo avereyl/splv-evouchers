@@ -2,8 +2,8 @@ package org.splv.evouchers.core.process.beans.validation;
 
 import java.util.Arrays;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 
 public class MultilineValidator implements ConstraintValidator<MultilineConstraint, String> {
 

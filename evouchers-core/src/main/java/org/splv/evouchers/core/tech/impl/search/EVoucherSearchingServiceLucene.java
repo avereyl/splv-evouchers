@@ -8,8 +8,8 @@ import static org.splv.evouchers.core.Constants.NAME_SEARCH_FIELD;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.search.engine.search.query.SearchResult;
@@ -40,7 +40,7 @@ public class EVoucherSearchingServiceLucene implements EVoucherSearchingService 
 		SearchSession searchSession = Search.session(entityManager);
 		StringTokenizer st = new StringTokenizer(query);
 
-		SearchResult<EVoucher> results = searchSession.search(EVoucher.class).where(f -> f.bool(b -> {
+		SearchResult<EVoucher> results = searchSession.search(EVoucher.class).where(f -> f.bool().with(b -> {
 			b.minimumShouldMatchNumber(1);
 			while (st.hasMoreTokens()) {
 				String token = st.nextToken() + "*";

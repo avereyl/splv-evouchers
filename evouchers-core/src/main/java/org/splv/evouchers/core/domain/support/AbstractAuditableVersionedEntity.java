@@ -1,8 +1,8 @@
 package org.splv.evouchers.core.domain.support;
 
-import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Version;
+import jakarta.persistence.Column;
+import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.Version;
 
 import org.splv.evouchers.core.Constants;
 
