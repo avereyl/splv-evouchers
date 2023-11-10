@@ -1,0 +1,106 @@
+{
+  "groups": [
+    {
+      "name": "app",
+      "description": "Application specific properties"
+    },
+    {
+      "name": "app.mailing",
+      "type": "fr.splv.evouchers.config.properties.MailingProperties",
+      "sourceType": "fr.splv.evouchers.config.properties.MailingProperties"
+    },
+    {
+      "name": "app.signing",
+      "description": "Application properties for signing"
+    },
+    {
+      "name": "app.voucher",
+      "type": "fr.splv.evouchers.config.properties.VoucherProperties",
+      "sourceType": "fr.splv.evouchers.config.properties.VoucherProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "app.searching.hits",
+      "type": "java.lang.Integer",
+      "description": "Number of hits return by the search. 10 by default"
+    },
+    {
+      "name": "app.mailing.archive",
+      "type": "java.lang.String",
+      "description": "A description for 'app.mailing.archive'"
+    },
+    {
+      "name": "app.mailing.from",
+      "type": "java.lang.String",
+      "description": "A description for 'app.mailing.from'"
+    },
+    {
+      "name": "app.mailing.reply",
+      "type": "java.lang.String",
+      "description": "A description for 'app.mailing.reply'"
+    },
+    {
+      "name": "app.signing.keystore.path",
+      "type": "java.lang.String",
+      "description": "Path of the keystore"
+    },
+    {
+      "name": "app.signing.keystore.password",
+      "type": "java.lang.String",
+      "description": "Password of the keystore"
+    },
+    {
+      "name": "app.signing.keystore.default-kid",
+      "type": "java.lang.String",
+      "description": "Default key identifier"
+    },
+    {
+      "name": "app.voucher.metadata-version",
+      "type": "java.lang.Integer",
+      "description": "Version number for metadata. Prevent voucher generation when metadata have changed.",
+      "default": 0
+    },
+    {
+      "name": "app.voucher.contact-email",
+      "type": "java.lang.String",
+      "description": "A description for 'app.voucher.contact-email'"
+    },
+    {
+      "name": "app.voucher.facturX.address",
+      "type": "java.lang.String",
+      "description": "A description for 'app.voucher.facturX.address'"
+    },
+    {
+      "name": "app.voucher.responsible.name",
+      "type": "java.lang.String",
+      "description": "A description for 'app.voucher.responsible.name'"
+    },
+    {
+      "name": "app.voucher.responsible.signature-path",
+      "type": "java.lang.String",
+      "description": "A description for 'app.voucher.responsible.signature-path'"
+    },
+    {
+      "name": "app.voucher.facturX.name",
+      "type": "java.lang.String",
+      "description": "A description for 'app.voucher.facturX.name'"
+    },
+    {
+      "name": "app.voucher.facturX.city",
+      "type": "java.lang.String",
+      "description": "A description for 'app.voucher.facturX.city'"
+    },
+    {
+      "name": "app.voucher.facturX.country-code",
+      "type": "java.lang.String",
+      "description": "A description for 'app.voucher.facturX.country-code'"
+    },
+    {
+      "name": "app.voucher.facturX.zip-code",
+      "type": "java.lang.String",
+      "description": "A description for 'app.voucher.facturX.zip-code'"
+    }
+  ],
+  "hints": []
+}

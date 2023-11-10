@@ -1,0 +1,1 @@
+ALTER TABLE evoucher DROP COLUMN metadata_version;
