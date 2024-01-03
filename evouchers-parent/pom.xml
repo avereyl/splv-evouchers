@@ -36,6 +36,9 @@
 		<hibernate.search.version>6.2.2.Final</hibernate.search.version>
 
 		<nimbus-jose-jwt.version>9.37.1</nimbus-jose-jwt.version>
+		<pdfbox.version>3.0.1</pdfbox.version>
+		<greenmail.version>2.0.1</greenmail.version>
+		<awaitility.version>4.2.0</awaitility.version>
 
 		<!-- plugins versions -->
 		<jacoco.version>0.8.11</jacoco.version>
