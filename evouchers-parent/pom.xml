@@ -7,7 +7,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.1.5</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.splv</groupId>
 	<artifactId>evouchers-parent</artifactId>
@@ -33,7 +33,7 @@
 		<!-- see class declared in
 		net.sf.jasperreports.engine.export.PdfXmpCreator -->
 		<xmpcore.version>6.1.11</xmpcore.version>
-		<hibernate.search.version>6.2.2.Final</hibernate.search.version>
+		<hibernate.search.version>6.2.3.Final</hibernate.search.version>
 
 		<nimbus-jose-jwt.version>9.37.1</nimbus-jose-jwt.version>
 
