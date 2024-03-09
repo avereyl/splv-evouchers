@@ -23,6 +23,7 @@
 		<evouchers-fonts.version>1.0.0-RELEASE</evouchers-fonts.version>
 
 		<springdoc-openapi.version>1.7.0</springdoc-openapi.version>
+		<springdoc-openapi-starter-webmvc-ui.version>2.3.0</springdoc-openapi-starter-webmvc-ui.version>
 		<zxing.version>3.5.2</zxing.version>
 		
 		<apache.batik.version>1.17</apache.batik.version>
