@@ -6,8 +6,8 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.5</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>3.2.3</version>
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.splv</groupId>
 	<artifactId>evouchers-parent</artifactId>
@@ -26,16 +26,23 @@
 		<zxing.version>3.5.2</zxing.version>
 		
 		<apache.batik.version>1.17</apache.batik.version>
-		<icu4j.version>74.1</icu4j.version>
-		<jasperreports.version>6.20.6</jasperreports.version>
+
+		<icu4j.version>74.2</icu4j.version>
+		<jasperreports.version>6.21.0</jasperreports.version>
+
 		<apache.fop.version>2.9</apache.fop.version>
 		<!-- do not upgrade xmpcore without checking jasper compatibility -->
 		<!-- see class declared in
 		net.sf.jasperreports.engine.export.PdfXmpCreator -->
 		<xmpcore.version>6.1.11</xmpcore.version>
-		<hibernate.search.version>6.2.2.Final</hibernate.search.version>
+		<hibernate.search.version>6.2.3.Final</hibernate.search.version>
 
 		<nimbus-jose-jwt.version>9.37.2</nimbus-jose-jwt.version>
+
+		<pdfbox.version>3.0.1</pdfbox.version>
+		<greenmail.version>2.0.1</greenmail.version>
+		<awaitility.version>4.2.0</awaitility.version>
+
 
 		<!-- plugins versions -->
 		<jacoco.version>0.8.11</jacoco.version>
