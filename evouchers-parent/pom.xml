@@ -26,8 +26,10 @@
 		<zxing.version>3.5.2</zxing.version>
 		
 		<apache.batik.version>1.17</apache.batik.version>
-		<icu4j.version>74.1</icu4j.version>
+
+		<icu4j.version>74.2</icu4j.version>
 		<jasperreports.version>6.21.0</jasperreports.version>
+
 		<apache.fop.version>2.9</apache.fop.version>
 		<!-- do not upgrade xmpcore without checking jasper compatibility -->
 		<!-- see class declared in
