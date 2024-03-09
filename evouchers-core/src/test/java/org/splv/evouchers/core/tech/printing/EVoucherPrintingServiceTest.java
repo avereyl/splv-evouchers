@@ -3,11 +3,13 @@ package org.splv.evouchers.core.tech.printing;
 import static org.junit.Assert.assertNotNull;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 import java.util.Locale;
 import java.util.Map;
+import java.util.UUID;
 
 import org.junit.jupiter.api.Test;
 import org.splv.evouchers.core.config.properties.MailingProperties;
@@ -92,16 +94,21 @@ class EVoucherPrintingServiceTest {
 		eVoucher.setDonorType(EVoucherDonorType.PROFESSIONAL);
 		eVoucher.setPaymentMethod(EVoucherPaymentMethod.CHECK);
 		eVoucher.setDonationDate(ZonedDateTime.now());
-		eVoucher.setDonorName("l1");
-		//TODO add lines for name and check test
-		eVoucher.setDonorAddress("");
-		eVoucher.setDonorCity("");
-		eVoucher.setDonorZipcode("");
+
+		eVoucher.setDonorName("John Doe\nJunior");
+		eVoucher.setDonorAddress("Acme Road\nHollywood Bd\n...");
+		eVoucher.setDonorCity("LA");
+		eVoucher.setDonorZipcode("00000");
+		
+		String fileName = System.getProperty("java.io.tmpdir").concat(UUID.randomUUID().toString()).concat(".pdf");
 		//when
-		try (ByteArrayOutputStream baos = printingService.printEVoucher(eVoucher, Locale.FRANCE);) {
+		try (ByteArrayOutputStream baos = printingService.printEVoucher(eVoucher, Locale.FRANCE);
+				FileOutputStream outputStream = new FileOutputStream(fileName);) {
 			//then
-			
+			baos.writeTo(outputStream);
 		}
+		// path of the file for visual check
+		System.out.println(fileName);
 		
 	}
 
