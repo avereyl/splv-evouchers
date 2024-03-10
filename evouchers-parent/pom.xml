@@ -7,7 +7,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.2.3</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.splv</groupId>
 	<artifactId>evouchers-parent</artifactId>
@@ -24,7 +24,7 @@
 
 		<springdoc-openapi.version>1.7.0</springdoc-openapi.version>
 		<springdoc-openapi-starter-webmvc-ui.version>2.3.0</springdoc-openapi-starter-webmvc-ui.version>
-		<zxing.version>3.5.2</zxing.version>
+		<zxing.version>3.5.3</zxing.version>
 		
 		<apache.batik.version>1.17</apache.batik.version>
 
