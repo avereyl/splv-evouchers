@@ -7,7 +7,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.2.3</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.splv</groupId>
 	<artifactId>evouchers-parent</artifactId>
@@ -29,7 +29,7 @@
 		<apache.batik.version>1.17</apache.batik.version>
 
 		<icu4j.version>74.2</icu4j.version>
-		<jasperreports.version>6.21.0</jasperreports.version>
+		<jasperreports.version>6.21.2</jasperreports.version>
 
 		<apache.fop.version>2.9</apache.fop.version>
 		<!-- do not upgrade xmpcore without checking jasper compatibility -->
