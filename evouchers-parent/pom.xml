@@ -7,7 +7,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.2.3</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.splv</groupId>
 	<artifactId>evouchers-parent</artifactId>
@@ -38,7 +38,7 @@
 		<xmpcore.version>6.1.11</xmpcore.version>
 		<hibernate.search.version>6.2.3.Final</hibernate.search.version>
 
-		<nimbus-jose-jwt.version>9.37.2</nimbus-jose-jwt.version>
+		<nimbus-jose-jwt.version>9.37.3</nimbus-jose-jwt.version>
 
 		<pdfbox.version>3.0.1</pdfbox.version>
 		<greenmail.version>2.0.1</greenmail.version>
