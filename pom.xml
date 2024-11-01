@@ -4,7 +4,7 @@
 
 	<groupId>org.splv</groupId>
 	<artifactId>evouchers</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>evouchers</name>
 	<description>e-vouchers project</description>
 	<packaging>pom</packaging>

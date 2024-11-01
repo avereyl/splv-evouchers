@@ -56,10 +56,16 @@
       "description": "Default key identifier"
     },
     {
+      "name": "app.voucher.metadata-current-version",
+      "type": "java.lang.Integer",
+      "description": "Current version number for metadata. Version used for voucher generation.",
+      "defaultValue": 0
+    },
+    {
       "name": "app.voucher.metadata-version",
       "type": "java.lang.Integer",
       "description": "Version number for metadata. Prevent voucher generation when metadata have changed.",
-      "default": 0
+      "defaultValue": 0
     },
     {
       "name": "app.voucher.contact-email",
