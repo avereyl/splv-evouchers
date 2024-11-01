@@ -90,6 +90,8 @@ class EVoucherPrintingServiceTest {
 		assertNotNull(printingService);
 		//given
 		var eVoucher = new EVoucher();
+		eVoucher.setId(01L);
+		eVoucher.setDistributionYear(2024);
 		eVoucher.setAmount(new BigDecimal(10));
 		eVoucher.setDonorType(EVoucherDonorType.PROFESSIONAL);
 		eVoucher.setPaymentMethod(EVoucherPaymentMethod.CHECK);

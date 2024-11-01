@@ -35,13 +35,13 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.engine.export.JRPdfExporter;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
-import net.sf.jasperreports.export.SimplePdfExporterConfiguration;
-import net.sf.jasperreports.export.SimplePdfReportConfiguration;
-import net.sf.jasperreports.export.type.PdfaConformanceEnum;
+import net.sf.jasperreports.pdf.JRPdfExporter;
+import net.sf.jasperreports.pdf.SimplePdfExporterConfiguration;
+import net.sf.jasperreports.pdf.SimplePdfReportConfiguration;
+import net.sf.jasperreports.pdf.type.PdfaConformanceEnum;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -207,6 +207,7 @@ public class EVoucherPrintingServiceJasper implements EVoucherPrintingService, I
 		reportConfig.setForceLineBreakPolicy(false);
 
 		JRPdfExporter exporter = new JRPdfExporter();
+		
 		exporter.setConfiguration(reportConfig);
 		exporter.setConfiguration(exportConfig);
 
@@ -214,6 +215,7 @@ public class EVoucherPrintingServiceJasper implements EVoucherPrintingService, I
 			exporter.setExporterInput(new SimpleExporterInput(eVoucherPrint));
 			exporter.setExporterOutput(new SimpleOutputStreamExporterOutput(baos));
 			exporter.exportReport();
+			
 			return baos;
 		} catch (IOException | JRException e) {
 			throw new PrintingException("Unable to export the eVoucher print to a PDF", e);
