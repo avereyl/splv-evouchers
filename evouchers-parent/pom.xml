@@ -6,48 +6,51 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.3</version>
+		<version>3.3.5</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.splv</groupId>
 	<artifactId>evouchers-parent</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>evouchers-parent</name>
 	<description>e-vouchers parent project</description>
 	<packaging>pom</packaging>
 	<properties>
 		<java.version>17</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- libs versions -->
-		<evouchers-core.version>0.0.1-SNAPSHOT</evouchers-core.version>
+		<evouchers-core.version>1.0.0-SNAPSHOT</evouchers-core.version>
 		<evouchers-fonts.version>1.0.0-RELEASE</evouchers-fonts.version>
 
-		<springdoc-openapi.version>1.7.0</springdoc-openapi.version>
-		<springdoc-openapi-starter-webmvc-ui.version>2.3.0</springdoc-openapi-starter-webmvc-ui.version>
-		<zxing.version>3.5.2</zxing.version>
-		
-		<apache.batik.version>1.17</apache.batik.version>
+		<springdoc-openapi.version>1.8.0</springdoc-openapi.version>
+		<springdoc-openapi-starter-webmvc-ui.version>2.6.0</springdoc-openapi-starter-webmvc-ui.version>
+		<zxing.version>3.5.3</zxing.version>
 
-		<icu4j.version>74.2</icu4j.version>
-		<jasperreports.version>6.21.0</jasperreports.version>
+		<apache.batik.version>1.18</apache.batik.version>
 
-		<apache.fop.version>2.9</apache.fop.version>
+		<icu4j.version>76.1</icu4j.version>
+		<jasperreports.version>7.0.1</jasperreports.version>
+
+		<apache.fop.version>2.10</apache.fop.version>
 		<!-- do not upgrade xmpcore without checking jasper compatibility -->
 		<!-- see class declared in
 		net.sf.jasperreports.engine.export.PdfXmpCreator -->
 		<xmpcore.version>6.1.11</xmpcore.version>
-		<hibernate.search.version>6.2.3.Final</hibernate.search.version>
+		<hibernate.search.version>7.2.1.Final</hibernate.search.version>
+		<!-- jboss-logging version upgrade is needed by hibernate search upgrade -->
+		<jboss-logging.version>3.6.0.Final</jboss-logging.version>
 
-		<nimbus-jose-jwt.version>9.37.2</nimbus-jose-jwt.version>
+		<nimbus-jose-jwt.version>9.42</nimbus-jose-jwt.version>
 
-		<pdfbox.version>3.0.1</pdfbox.version>
-		<greenmail.version>2.0.1</greenmail.version>
-		<awaitility.version>4.2.0</awaitility.version>
+		<pdfbox.version>3.0.3</pdfbox.version>
+		<greenmail.version>2.1.0</greenmail.version>
+		<awaitility.version>4.2.2</awaitility.version>
 
 
 		<!-- plugins versions -->
-		<jacoco.version>0.8.11</jacoco.version>
-		<maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+		<jacoco.version>0.8.12</jacoco.version>
+		<maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
 		<jasypt.version>3.0.5</jasypt.version>
 	</properties>
 
@@ -86,6 +89,14 @@
 				<groupId>com.github.ulisesbocchio</groupId>
 				<artifactId>jasypt-maven-plugin</artifactId>
 				<version>${jasypt.version}</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<propertiesEncoding>ISO-8859-1</propertiesEncoding>
+				</configuration>
 			</plugin>
 
 		</plugins>

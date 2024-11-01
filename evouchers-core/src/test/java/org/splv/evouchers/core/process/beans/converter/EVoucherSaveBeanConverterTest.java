@@ -1,7 +1,6 @@
 package org.splv.evouchers.core.process.beans.converter;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.math.BigDecimal;
@@ -76,7 +75,7 @@ class EVoucherSaveBeanConverterTest {
 		assertEquals(EVoucherDonorType.PROFESSIONAL, bean.getDonorType());
 		assertEquals(EVoucherPaymentMethod.CHECK, bean.getPaymentMethod());
 		assertNotNull(bean.getDonationDate());
-		assertNotEquals(bean.getDonationDate(), donationDate);
+		assertEquals(bean.getDonationDate(), donationDate);
 		assertNotNull(bean.getOriginalDistributionYear());
 		assertNotNull(bean.getDistributionYear());
 	}

@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.splv</groupId>
 		<artifactId>evouchers-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0.0-SNAPSHOT</version>
 		<relativePath>../evouchers-parent</relativePath>
 	</parent>
 
@@ -39,7 +39,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate.search</groupId>
-			<artifactId>hibernate-search-mapper-orm-orm6</artifactId>
+			<artifactId>hibernate-search-mapper-orm</artifactId>
 			<version>${hibernate.search.version}</version>
 		</dependency>
 		<dependency>
@@ -87,6 +87,12 @@
 			<artifactId>jasperreports</artifactId>
 			<version>${jasperreports.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-pdf</artifactId>
+			<version>${jasperreports.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.splv</groupId>
 			<artifactId>evouchers-fonts</artifactId>
