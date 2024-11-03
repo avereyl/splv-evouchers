@@ -118,6 +118,12 @@
 		</dependency>
 
 		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.apache.xmlgraphics</groupId>
 			<artifactId>batik-anim</artifactId>
 			<version>${apache.batik.version}</version>
