@@ -121,6 +121,32 @@ public class EVoucherController {
 	public ResponseEntity<EVoucherObject> createEVoucher(@Valid @RequestBody EVoucherSaveBean bean) {
 		return ResponseEntity.ok(eVoucherProcessService.createEVoucher(bean));
 	}
+	
+	/**
+	 * Create an new eVoucher, print and send it.
+	 * 
+	 * @param bean eVoucher information
+	 * @return The saved eVoucher object.
+	 */
+	@PostMapping(value = "/evouchers/process", produces = { DEFAULT_API_CONTENT_TYPE_V1 })
+	public ResponseEntity<EVoucherObject> createAndProcessEVoucher(@Valid @RequestBody EVoucherSaveBean bean,
+			@RequestParam(required = false, defaultValue = "") Set<@Email String> to,
+			@RequestParam(required = false, defaultValue = "") Set<@Email String> cc) {
+		return ResponseEntity.ok(eVoucherProcessService.processEVoucher(bean, to, cc));
+	}
+	/**
+	 * Create an new eVoucher, print and send it.
+	 * 
+	 * @param bean eVoucher information
+	 * @return Flux of eVoucher events.
+	 */
+	@Operation(responses = @ApiResponse(responseCode = "200", content = @Content(array = @ArraySchema(schema = @Schema(implementation = EVoucherEventObject.class)))))
+	@PostMapping(value = "/evouchers/process", produces = MediaType.APPLICATION_NDJSON_VALUE)
+	public Flux<EVoucherEventObject> createAndProcessEVoucherWithEvents(@Valid @RequestBody EVoucherSaveBean bean,
+			@RequestParam(required = false, defaultValue = "") Set<@Email String> to,
+			@RequestParam(required = false, defaultValue = "") Set<@Email String> cc) {
+		return eVoucherProcessService.processEVoucherWithEvents(bean, to, cc);
+	}
 
 	/**
 	 * Save an existing eVoucher.
@@ -201,7 +227,12 @@ public class EVoucherController {
 		return eVoucherProcessService.dispatchEVoucher(id, to, cc);
 	}
 	
-	
+	/**
+	 * Validate the signature of the eVoucher.
+	 * 
+	 * @param bean The validation bean
+	 * @return a {@link EVoucherValidationResultObject}
+	 */
 	@PostMapping(value = "/evouchers/validation", produces = DEFAULT_API_CONTENT_TYPE_V1)
 	public ResponseEntity<EVoucherValidationResultObject> validateEvoucher(@Valid @RequestBody EVoucherValidationBean bean) {
 		return ResponseEntity.ok(eVoucherProcessService.validateEVoucherPrint(bean.getSignature()));

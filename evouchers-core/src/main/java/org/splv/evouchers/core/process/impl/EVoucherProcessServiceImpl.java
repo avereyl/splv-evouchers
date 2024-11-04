@@ -186,8 +186,32 @@ public class EVoucherProcessServiceImpl implements EVoucherProcessService {
 	}
 
 	@Override
-	public Flux<EVoucherEventObject> processEVoucher(EVoucherSaveBean eVoucherSaveBean) {
-		// save, print and send
+	public EVoucherObject processEVoucher(EVoucherSaveBean eVoucherSaveBean, Set<String> to, Set<String> cc) {
+		// create, print and send
+		// CREATION
+		final EVoucher eVoucher = eVoucherService.createEVoucher(eVoucherConverter.convert(eVoucherSaveBean));
+		// PRINTING
+		try (ByteArrayOutputStream baos = printingService.printEVoucher(eVoucher, Constants.DEFAULT_LOCALE);) {
+			//save document and event
+			eVoucherService.saveEVoucherPrintedDocumentWithEvent(eVoucher, baos.toByteArray(), DocumentType.VOUCHER);
+
+			//mark eVoucher as sent
+			eVoucherService.markEVoucherAsSent(eVoucher);
+			
+			// DISPATCH
+			Attachment attachment = new Attachment(baos.toByteArray(), PrintingHelper.computeVoucherFilename(eVoucher), Constants.DEFAULT_EVOUCHER_PRINT_MIME_TYPE);
+			mailingService.sendEVoucherPrint(eVoucher, Constants.DEFAULT_LOCALE, List.of(attachment), to, cc);
+
+		} catch (IOException e) {
+			throw new EVoucherPrintingException(eVoucher.getId(), "Unable to process the eVoucher.", e);
+		}
+
+		return eVoucherObjectConverter.convert(eVoucher);
+	}
+
+	@Override
+	public Flux<EVoucherEventObject> processEVoucherWithEvents(EVoucherSaveBean eVoucherSaveBean, Set<String> to, Set<String> cc) {
+		// create, print and send
 		return Flux.create(sink -> {
 			// ACK
 			sink.next(EVoucherEventObject.buildEvent(EVoucherEventType.ACK));
@@ -212,7 +236,7 @@ public class EVoucherProcessServiceImpl implements EVoucherProcessService {
 				
 				// DISPATCH
 				Attachment attachment = new Attachment(baos.toByteArray(), PrintingHelper.computeVoucherFilename(eVoucher), Constants.DEFAULT_EVOUCHER_PRINT_MIME_TYPE);
-				mailingService.sendEVoucherPrint(eVoucher, Constants.DEFAULT_LOCALE, List.of(attachment), Set.of(), Set.of());
+				mailingService.sendEVoucherPrint(eVoucher, Constants.DEFAULT_LOCALE, List.of(attachment), to, cc);
 				sink.next(eVoucherObjectConverter.convert(dispatchEvent));
 				sink.complete();
 				
@@ -282,5 +306,6 @@ public class EVoucherProcessServiceImpl implements EVoucherProcessService {
 		printObject.setDocumentType(documentType);
 		return printObject;
 	}
+
 	
 }

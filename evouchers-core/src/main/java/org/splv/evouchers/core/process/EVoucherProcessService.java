@@ -79,6 +79,22 @@ public interface EVoucherProcessService {
 	Flux<EVoucherEventObject> dispatchEVoucher(long id, Set<String> to, Set<String> cc);
 	
 	/**
+	 * Process an eVoucher creation request, returns events on each steps.
+	 * <ul>
+	 * <li>Save eVoucher
+	 * <li>Print eVoucher
+	 * <li>Dispatch eVoucher
+	 * </ul>
+	 * 
+	 * @param eVoucherSaveBean creation bean
+	 * @param to List of mail address to send the mail to.
+	 * @param cc List of mail address to send a copy of the mail.
+	 * @return a {@link Flux} of {@link EVoucherEventObject}
+	 */
+	Flux<EVoucherEventObject> processEVoucherWithEvents(EVoucherSaveBean eVoucherSaveBean, Set<String> to,
+			Set<String> cc);
+	
+	/**
 	 * Process an eVoucher creation request.
 	 * <ul>
 	 * <li>Save eVoucher
@@ -87,9 +103,11 @@ public interface EVoucherProcessService {
 	 * </ul>
 	 * 
 	 * @param eVoucherSaveBean creation bean
-	 * @return a {@link Flux} of {@link EVoucherEventObject}
+	 * @param to List of mail address to send the mail to.
+	 * @param cc List of mail address to send a copy of the mail.
+	 * @return a {@link EVoucherObject}
 	 */
-	Flux<EVoucherEventObject> processEVoucher(EVoucherSaveBean eVoucherSaveBean);
+	EVoucherObject processEVoucher(EVoucherSaveBean eVoucherSaveBean, Set<String> to, Set<String> cc);
 	
 	/**
 	 * Find eVoucher with given id
