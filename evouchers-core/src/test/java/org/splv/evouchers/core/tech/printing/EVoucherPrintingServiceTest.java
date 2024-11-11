@@ -106,18 +106,18 @@ class EVoucherPrintingServiceTest {
 		eVoucher.setDonorCity("LA");
 		eVoucher.setDonorZipcode("00000");
 
-		String fileName = System.getProperty("java.io.tmpdir").concat(UUID.randomUUID().toString()).concat(".pdf");
 		// when
-		try (ByteArrayOutputStream baos = printingService.printEVoucher(eVoucher, Locale.FRANCE);
-				FileOutputStream outputStream = new FileOutputStream(fileName);) {
+		try (ByteArrayOutputStream baos = printingService.printEVoucher(eVoucher, Locale.FRANCE)) {
 
 			boolean notCIBuild = Stream.of(environment.getActiveProfiles()).noneMatch(s -> "ci".equalsIgnoreCase(s));
-
 			if (notCIBuild) {
-				// then
-				baos.writeTo(outputStream);
-				// path of the file for visual check
-				log.info(fileName);
+				String fileName = System.getProperty("java.io.tmpdir").concat(UUID.randomUUID().toString()).concat(".pdf");
+				try (FileOutputStream outputStream = new FileOutputStream(fileName);) {
+					// then
+					baos.writeTo(outputStream);
+					// path of the file for visual check
+					log.info(fileName);
+				}
 			} else {
 				log.info("No file generated - ci profile detected.");
 			}
