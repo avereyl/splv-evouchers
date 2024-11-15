@@ -22,12 +22,9 @@ import org.splv.evouchers.core.tech.EVoucherPrintingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
@@ -35,7 +32,8 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@SpringBootTest(properties = { "app.signing.keystore.path=classpath:/keystores/dummy-keystore.p12",
+@SpringBootTest(properties = { 
+		"app.signing.keystore.path=classpath:/keystores/dummy-keystore.p12",
 		"app.signing.keystore.password=changeit", "app.signing.keystore.default-kid=default",
 		"app.mailing.from=test@splv.fr" })
 class EVoucherPrintingServiceTest {
@@ -73,14 +71,6 @@ class EVoucherPrintingServiceTest {
 			return voucherGenerationProperties;
 		}
 
-		@Primary
-		@Bean("coreMessageSource")
-		MessageSource messageSource() {
-			ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-			messageSource.setBasename("classpath:i18n/core-messages");
-			messageSource.setDefaultEncoding("UTF-8");
-			return messageSource;
-		}
 	}
 
 	@Autowired
