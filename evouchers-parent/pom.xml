@@ -42,7 +42,7 @@
 		<!-- jboss-logging version upgrade is needed by hibernate search upgrade -->
 		<jboss-logging.version>3.6.0.Final</jboss-logging.version>
 
-		<nimbus-jose-jwt.version>9.42</nimbus-jose-jwt.version>
+		<nimbus-jose-jwt.version>9.43</nimbus-jose-jwt.version>
 
 		<pdfbox.version>3.0.3</pdfbox.version>
 		<greenmail.version>2.1.0</greenmail.version>
