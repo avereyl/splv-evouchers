@@ -28,7 +28,7 @@
 		<zxing.version>3.5.3</zxing.version>
 
 		<apache.batik.version>1.18</apache.batik.version>
-		<commons-io.version>2.17.0</commons-io.version>
+		<commons-io.version>2.18.0</commons-io.version>
 
 		<icu4j.version>76.1</icu4j.version>
 		<jasperreports.version>7.0.1</jasperreports.version>
