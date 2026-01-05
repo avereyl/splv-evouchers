@@ -31,7 +31,7 @@
 		<commons-io.version>2.18.0</commons-io.version>
 
 		<icu4j.version>76.1</icu4j.version>
-		<jasperreports.version>7.0.1</jasperreports.version>
+		<jasperreports.version>7.0.2</jasperreports.version>
 
 		<apache.fop.version>2.10</apache.fop.version>
 		<!-- do not upgrade xmpcore without checking jasper compatibility -->
