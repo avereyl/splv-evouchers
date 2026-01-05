@@ -6,8 +6,8 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.5</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<version>3.4.0</version>
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.splv</groupId>
 	<artifactId>evouchers-parent</artifactId>
@@ -24,25 +24,25 @@
 		<evouchers-fonts.version>1.0.0-RELEASE</evouchers-fonts.version>
 
 		<springdoc-openapi.version>1.8.0</springdoc-openapi.version>
-		<springdoc-openapi-starter-webmvc-ui.version>2.6.0</springdoc-openapi-starter-webmvc-ui.version>
+		<springdoc-openapi-starter-webmvc-ui.version>2.8.10</springdoc-openapi-starter-webmvc-ui.version>
 		<zxing.version>3.5.3</zxing.version>
 
 		<apache.batik.version>1.18</apache.batik.version>
-		<commons-io.version>2.17.0</commons-io.version>
+		<commons-io.version>2.19.0</commons-io.version>
 
 		<icu4j.version>76.1</icu4j.version>
-		<jasperreports.version>7.0.1</jasperreports.version>
+		<jasperreports.version>7.0.2</jasperreports.version>
 
 		<apache.fop.version>2.10</apache.fop.version>
 		<!-- do not upgrade xmpcore without checking jasper compatibility -->
 		<!-- see class declared in
 		net.sf.jasperreports.engine.export.PdfXmpCreator -->
 		<xmpcore.version>6.1.11</xmpcore.version>
-		<hibernate.search.version>7.2.1.Final</hibernate.search.version>
+		<hibernate.search.version>7.2.3.Final</hibernate.search.version>
 		<!-- jboss-logging version upgrade is needed by hibernate search upgrade -->
 		<jboss-logging.version>3.6.0.Final</jboss-logging.version>
 
-		<nimbus-jose-jwt.version>9.42</nimbus-jose-jwt.version>
+		<nimbus-jose-jwt.version>10.0.2</nimbus-jose-jwt.version>
 
 		<pdfbox.version>3.0.3</pdfbox.version>
 		<greenmail.version>2.1.0</greenmail.version>

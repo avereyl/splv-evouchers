@@ -3,6 +3,7 @@ package org.splv.evouchers.core.process.beans.converter;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 
+import org.splv.evouchers.core.Constants;
 import org.splv.evouchers.core.domain.EVoucher;
 import org.splv.evouchers.core.process.beans.in.EVoucherSaveBean;
 import org.springframework.core.convert.converter.Converter;
@@ -20,7 +21,7 @@ public class EVoucherSaveBeanConverter implements Converter<EVoucher, EVoucherSa
 		EVoucherSaveBean destination = new EVoucherSaveBean();
 		destination.setVersion(0L);
 		destination.setAmount(BigDecimal.ZERO);
-		destination.setDonationDate(ZonedDateTime.now());
+		destination.setDonationDate(ZonedDateTime.now(Constants.DEFAULT_ZONEID));
 		destination.setDonorAddress(source.getDonorAddress());
 		destination.setDonorCity(source.getDonorCity());
 		destination.setDonorEmail(source.getDonorEmail());

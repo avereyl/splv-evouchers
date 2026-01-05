@@ -1,13 +1,17 @@
 package org.splv.evouchers.core.process.beans.converter;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.math.BigDecimal;
+import java.time.Duration;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 
 import org.junit.jupiter.api.Test;
+import org.splv.evouchers.core.Constants;
 import org.splv.evouchers.core.domain.Coordinates;
 import org.splv.evouchers.core.domain.EVoucher;
 import org.splv.evouchers.core.domain.EVoucherDonorType;
@@ -36,14 +40,14 @@ class EVoucherSaveBeanConverterTest {
 		// given
 		Coordinates coordinates = new Coordinates(47.0, 1.0);
 		ZonedDateTime creationDate = ZonedDateTime.now();
-		ZonedDateTime donationDate = ZonedDateTime.now();
+		ZonedDateTime donationDate = ZonedDateTime.now().minusHours(2);
 		EVoucher eVoucher = new EVoucher();
 		eVoucher.setAmount(null);// not copied
 		eVoucher.setVersion(null);// not copied
 		eVoucher.setCreatedDate(creationDate);
 		eVoucher.setLastModifiedDate(creationDate);
 		eVoucher.setDistributionYear(2022);
-		eVoucher.setDonationDate(donationDate);
+		eVoucher.setDonationDate(donationDate);// not copied
 		eVoucher.setDonorName("donor");
 		eVoucher.setDonorFirstname("firstname");
 		eVoucher.setDonorLastname("lastname");
@@ -74,8 +78,12 @@ class EVoucherSaveBeanConverterTest {
 		assertEquals("donor@email.org", bean.getDonorEmail());
 		assertEquals(EVoucherDonorType.PROFESSIONAL, bean.getDonorType());
 		assertEquals(EVoucherPaymentMethod.CHECK, bean.getPaymentMethod());
-		assertNotNull(bean.getDonationDate());
-		assertEquals(bean.getDonationDate(), donationDate);
+		assertNotNull(bean.getDonationDate());// set by the converter
+		assertNotEquals(bean.getDonationDate(), donationDate);//not copied
+		// date set is close to now // tolerance of 5 minutes
+		assertTrue(Duration.between(ZonedDateTime.now(Constants.DEFAULT_ZONEID), bean.getDonationDate()).minusMinutes(5)
+				.isNegative());
+		
 		assertNotNull(bean.getOriginalDistributionYear());
 		assertNotNull(bean.getDistributionYear());
 	}
